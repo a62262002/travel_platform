@@ -1,7 +1,7 @@
 const travelController = require('../controllers/travelController.js')
 const adminController = require('../controllers/adminController.js')
 const userController = require('../controllers/userController.js')
-module.exports = app => {
+module.exports = (app, passport) => {
   // 前台
   app.get('/', (req, res) => res.redirect('/travels')
   )
@@ -13,4 +13,9 @@ module.exports = app => {
   // 登入＆註冊
   app.get('/signup', userController.signUpPage)
   app.post('/signup', userController.signUp)
+  app.get('/signin', userController.signInPage)
+  app.post('/signin', passport.authenticate('local', {
+    failureRedirect: '/siginin', failureFlash: true
+  }), userController.signIn)
+  app.get('/logout', userController.logout)
 }
