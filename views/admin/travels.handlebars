@@ -1,1 +1,50 @@
-<div>admin travels</div>
+<nav id="navbar" class="position-fixed fixed-left" style="top: 100px;left:10px;width:100px ;">
+  <header>KKday 後台</header>
+  <ul class="navbar-nav">
+    <li>餐廳</li>
+    <li>訂單</li>
+  </ul>
+</nav>
+<table class="table ml-10 pt-4">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">title</th>
+      <th scope="col">description</th>
+      <th scope="col">start_time</th>
+      <th scope="col">end_time</th>
+      <th scope="col">location</th>
+      <th scope="col">price</th>
+      <th scope="col">#</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each travels}}
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.name}}</td>
+      <td>{{this.description}}</td>
+      <td>{{this.start_time}}</td>
+      <td>{{this.end_time}}</td>
+      <td>{{this.location}}</td>
+      <td>{{this.price}}</td>
+      <td>{{this.name}}</td>
+      <td>
+        <button type="button" class="btn btn-link">
+          <a href="/admin/travels/{{this.id}}">
+            Show
+          </a>
+        </button>
+        <button type="button" class="btn btn-link">
+          <a href="/admin/travels/{{this.id}}/edit">
+            Edit
+          </a>
+        </button>
+        <form action="/admin/travels/{{this.id}}?_method=DELETE" method="POST" style="display: inline;">
+          <button type="submit" class="btn btn-link">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

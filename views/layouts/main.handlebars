@@ -17,8 +17,8 @@
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav navbar-right">
         {{#ifCond user.role "admin"}}
         <li class="nav-item">
           <a class="nav-link" href="/admin">後台</a>
@@ -35,8 +35,9 @@
       </ul>
     </div>
   </nav>
+  <br />
   <main role="main">
-    <div class="album py-5 bg-light">
+    <div class="album py-5">
       <div class="container">
         {{#if success_messages}}
         <div class="alert alert-success" role="alert" style="margin: 30px 0;">
