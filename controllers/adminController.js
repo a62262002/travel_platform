@@ -6,6 +6,9 @@ const adminController = {
     return Travel.findAll().then(travels => {
       return res.render('admin/travels', { travels: travels })
     })
+  },
+  createRestaurant: (req, res) => {
+    return res.render('admin/create')
   }
 }
 
